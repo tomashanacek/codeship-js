@@ -27,7 +27,7 @@ class Organization {
     async createBuild(projectUuid, ref, commitSha) {
         const url = `${CODESHIP_URL}/organizations/${this.uuid}/projects/${projectUuid}/builds`
 
-        const res = await axios.post(url, {
+        return await axios.post(url, {
             ref,
             commit_sha: commitSha
         }, {
