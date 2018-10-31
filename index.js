@@ -36,6 +36,16 @@ class Organization {
             }
         })
     }
+
+    async restartBuild(projectUuid, buildUuid) {
+        const url = `${CODESHIP_URL}/organizations/${this.uuid}/projects/${projectUuid}/builds/${buildUuid}/restart`
+
+        return await axios.post(url, {}, {
+            headers: {
+                Authorization: `Bearer ${this.accessToken}`
+            }
+        })
+    }
 }
 
 class Codeship {
